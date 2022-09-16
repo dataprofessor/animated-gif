@@ -44,6 +44,7 @@ if uploaded_file is not None:
   st.session_state.clip_total_frames = clip.duration * clip.fps
   
   # Display output
+  st.subheader('Metrics')
   col1, col2, col3, col4, col5 = st.columns(5)
   col1.metric('Width', st.session_state.clip_width, 'pixels')
   col2.metric('Height', st.session_state.clip_height, 'pixels')
@@ -52,6 +53,7 @@ if uploaded_file is not None:
   col5.metric('Total Frames', st.session_state.clip_total_frames, 'frames')
 
   # Extract video frame as a display image
+  st.subheader('Preview')
   clip.save_frame('frame.gif', t=selected_frame)
   frame_image = Image.open('frame.gif')
   st.image(frame_image)
@@ -62,6 +64,8 @@ if uploaded_file is not None:
   export_image = Image.open('export.gif')
   st.image(export_image)
 
+  # Print parameters
+  st.subheader('Parameters')
   st.write(frame_image.size)
   st.write(selected_export_range)
 
