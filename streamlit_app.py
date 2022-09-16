@@ -52,11 +52,17 @@ if uploaded_file is not None:
   col5.metric('Total Frames', st.session_state.clip_total_frames, 'frames')
 
   # Extract video frame as a display image
-  clip.save_frame('frame.jpg', t=selected_frame)
-  frame_image = Image.open("frame.jpg")
+  clip.save_frame('frame.gif', t=selected_frame)
+  frame_image = Image.open('frame.gif')
   st.image(frame_image)
+
+  # Export as animated GIF
+  clip = clip.subclip(0, 3)
+  clip.write_gif('export.gif')
+  export_image = Image.open('export.gif')
+  st.image(export_image)
+
   st.write(frame_image.size)
- 
   st.write(selected_export_range)
 
 else:
