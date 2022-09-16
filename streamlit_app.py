@@ -58,5 +58,7 @@ if uploaded_file is not None:
   st.image(frame_image)
   st.write(frame_image.size)
  
+  st.write(selected_export_range)
+
 else:
   st.warning('👈 Upload a video file')
