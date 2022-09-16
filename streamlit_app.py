@@ -1,6 +1,7 @@
 import streamlit as st
 import tempfile
 from PIL import Image
+import numpy as np
 from moviepy.editor import VideoFileClip
 
 st.title('🎈 Animated GIF Maker')
@@ -27,7 +28,7 @@ if uploaded_file is not None:
   col4.metric('FPS', clip.fps, '')
   col5.metric('Frames', frames_count, 'frames')
   
-  selected_frame = st.sidebar.slider('Select a frame', frames_count.median(), frames_count, 10)
+  selected_frame = st.sidebar.slider('Select a frame', np.median(frames_count), frames_count, 10)
   
   clip.save_frame('frame.jpg', t=selected_frame)
   frame_image = Image.open("frame.jpg")
