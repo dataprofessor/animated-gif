@@ -28,7 +28,17 @@ if uploaded_file is not None:
   
   # Open file
   clip = VideoFileClip(tfile.name)
+  selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
   
+  # Resizing of video
+  clip = clip.resize(selected_resolution_scaling)
+  
+  # Extract video frame as a display image
+  clip.save_frame('frame.jpg', t=selected_frame)
+  frame_image = Image.open("frame.jpg")
+  st.image(frame_image)
+  st.write(frame_image.size)
+    
   st.session_state.clip_width = clip.w
   st.session_state.clip_height = clip.h
   st.session_state.clip_duration = clip.duration
@@ -44,16 +54,7 @@ if uploaded_file is not None:
   col5.metric('Total Frames', st.session_state.clip_total_frames, 'frames')
   
   selected_frame = st.sidebar.slider('Select a time frame (s)', 0, int(st.session_state.clip_duration), int(np.median(st.session_state.clip_duration)) )
-  selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
-  
-  # Resizing of video
-  clip = clip.resize(selected_resolution_scaling)
-  
-  # Extract video frame as a display image
-  clip.save_frame('frame.jpg', t=selected_frame)
-  frame_image = Image.open("frame.jpg")
-  st.image(frame_image)
-  st.write(frame_image.size)
-  
+
+
 else:
   st.warning('👈 Upload a video file')
