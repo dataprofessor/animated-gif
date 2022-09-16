@@ -61,8 +61,13 @@ if uploaded_file is not None:
   # Export as animated GIF
   clip = clip.subclip(0, 3)
   clip.write_gif('export.gif')
-  export_image = Image.open('export.gif')
-  st.image(export_image)
+  with open('export.gif', 'rb') as file:
+    btn = st.download_button(
+            label='Download image',
+            data=file,
+            file_name='export.gif',
+            mime='image/gif'
+          )
 
   # Print parameters
   st.subheader('Parameters')
