@@ -28,6 +28,10 @@ if uploaded_file is not None:
   
   # Open file
   clip = VideoFileClip(tfile.name)
+    
+  st.session_state.clip_duration = clip.duration
+    
+  selected_frame = st.sidebar.slider('Select a time frame (s)', 0, int(st.session_state.clip_duration), int(np.median(st.session_state.clip_duration)) )
   selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
   
   # Resizing of video
@@ -52,9 +56,6 @@ if uploaded_file is not None:
   col3.metric('Duration', st.session_state.clip_duration, 'seconds')
   col4.metric('FPS', st.session_state.clip_fps, '')
   col5.metric('Total Frames', st.session_state.clip_total_frames, 'frames')
-  
-  selected_frame = st.sidebar.slider('Select a time frame (s)', 0, int(st.session_state.clip_duration), int(np.median(st.session_state.clip_duration)) )
-
 
 else:
   st.warning('👈 Upload a video file')
