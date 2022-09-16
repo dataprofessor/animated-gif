@@ -16,7 +16,7 @@ if uploaded_file is not None:
   tfile.write(uploaded_file.read())
   
   # Open file
-  clip_raw = VideoFileClip(tfile.name)
+  clip = VideoFileClip(tfile.name)
   
   # Display output
   col1, col2, col3, col4, col5 = st.columns(5)
