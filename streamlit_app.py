@@ -3,4 +3,8 @@ from moviepy.editor import VideoFileClip
 
 st.title('🎈 Animated GIF Maker')
 
+uploaded_file = st.file_uploader("Choose a file", type=['mov', 'mp4'])
 
+clip = VideoFileClip(uploaded_file)
+
+st.write(clip.w)
