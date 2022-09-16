@@ -23,6 +23,9 @@ if uploaded_file is not None:
   col2.metric('Height', clip.h, 'pixels')
   col3.metric('Duration', clip.duration, 'seconds')
   
+  frames_count = len(list(clip.iter_frames()))
+  st.write(frames_count)
+  
   clip.save_frame('frame.jpg', t=10)
   frame_image = Image.open("frame.jpg")
   st.image(frame_image)
