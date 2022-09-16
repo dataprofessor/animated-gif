@@ -56,7 +56,8 @@ if uploaded_file is not None:
   st.subheader('Preview')
   clip.save_frame('frame.gif', t=selected_frame)
   frame_image = Image.open('frame.gif')
-  st.image(frame_image)
+  with st.expander('Show image'):
+    st.image(frame_image)
 
   # Export as animated GIF
   clip = clip.subclip(0, 3)
