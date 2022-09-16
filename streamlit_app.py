@@ -33,7 +33,8 @@ if uploaded_file is not None:
     
   selected_frame = st.sidebar.slider('View a time frame (s)', 0, int(st.session_state.clip_duration), int(np.median(st.session_state.clip_duration)) )
   selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
-  selected_export_range = st.slider('Select a range of values', 0, int(st.session_state.clip_duration), (5, 15))
+  selected_export_range = st.slider('Select duration range to export', 0, int(st.session_state.clip_duration), 
+                                    (int(st.session_state.clip_duration*0.25), int(st.session_state.clip_duration*0.75) ))
 
   # Resizing of video
   clip = clip.resize(selected_resolution_scaling)
