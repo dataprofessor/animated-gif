@@ -29,13 +29,13 @@ if uploaded_file is not None:
   selected_frame = st.sidebar.slider('Select a time frame (s)', 0, int(clip.duration), int(np.median(clip.duration)) )
   selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
   
+  # Resizing of video
+  clip.resize(selected_resolution_scaling)
+  
   # Extract video frame as a display image
   clip.save_frame('frame.jpg', t=selected_frame)
   frame_image = Image.open("frame.jpg")
   st.image(frame_image)
-  
-  # Resizing of video
-  clip.resize(selected_resolution_scaling)
   
 else:
   st.warning('👈 Upload a video file')
