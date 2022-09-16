@@ -75,8 +75,9 @@ if uploaded_file is not None:
 
   # Print image parameters
   st.subheader('Image parameters')
-  st.write('Image size:', frame_image.size)
-  st.write('Export duration:', selected_export_range)
+  with st.expander(''):
+    st.write('Image size:', frame_image.size)
+    st.write('Export duration:', selected_export_range)
 
 else:
   st.warning('👈 Upload a video file')
