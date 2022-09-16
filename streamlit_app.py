@@ -1,5 +1,6 @@
 import streamlit as st
+from moviepy.editor import VideoFileClip
 
-st.title('🎈 App Name')
+st.title('🎈 Animated GIF Maker')
 
-st.write('Hello world!')
+
