@@ -23,7 +23,7 @@ if uploaded_file is not None:
   col2.metric('Height', clip.h, 'pixels')
   col3.metric('Duration', clip.duration, 'seconds')
   col4.metric('FPS', clip.fps, '')
-  col5.metric('Frames', clip.duration * clip.fps, '')
+  col5.metric('Frames', clip.duration * clip.fps, 'frames')
   
   
   clip.save_frame('frame.jpg', t=10)
