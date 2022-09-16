@@ -17,7 +17,6 @@ if 'clip_total_frames' not in st.session_state:
     
 st.title('🎈 Animated GIF Maker')
 
-
 st.sidebar.header('Upload file')
 uploaded_file = st.sidebar.file_uploader("Choose a file", type=['mov', 'mp4'])
 
