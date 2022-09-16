@@ -59,6 +59,12 @@ if uploaded_file is not None:
   with st.expander('Show image'):
     st.image(frame_image)
 
+  # Print image parameters
+  st.subheader('Image parameters')
+  with st.expander(''):
+    st.write('Image size:', frame_image.size)
+    st.write('Export duration:', selected_export_range)
+    
   # Export as animated GIF
   clip = clip.subclip(0, 3)
   
@@ -72,12 +78,6 @@ if uploaded_file is not None:
             file_name='export.gif',
             mime='image/gif'
           )
-
-  # Print image parameters
-  st.subheader('Image parameters')
-  with st.expander(''):
-    st.write('Image size:', frame_image.size)
-    st.write('Export duration:', selected_export_range)
 
 else:
   st.warning('👈 Upload a video file')
