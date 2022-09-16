@@ -18,17 +18,15 @@ if uploaded_file is not None:
   # Open file
   clip = VideoFileClip(tfile.name)
   
-  frames_count = int(clip.duration * clip.fps)
-  
   # Display output
   col1, col2, col3, col4, col5 = st.columns(5)
   col1.metric('Width', clip.w, 'pixels')
   col2.metric('Height', clip.h, 'pixels')
   col3.metric('Duration', clip.duration, 'seconds')
   col4.metric('FPS', clip.fps, '')
-  col5.metric('Frames', frames_count, 'frames')
+  col5.metric('Frames', clip.duration * clip.fps, 'frames')
   
-  selected_frame = st.sidebar.slider('Select a duration (s)', 1, clip.duration, int(np.median(clip.duration)) )
+  selected_frame = st.sidebar.slider('Select a duration (s)', 1, int(clip.duration), int(np.median(clip.duration)) )
   
   clip.save_frame('frame.jpg', t=selected_frame)
   frame_image = Image.open("frame.jpg")
