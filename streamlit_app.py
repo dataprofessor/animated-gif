@@ -71,6 +71,7 @@ if uploaded_file is not None:
   clip.write_gif('export.gif')
   
   st.subheader('Download')
+  
   @st.experimental_memo
   with open('export.gif', 'rb') as file:
     btn = st.download_button(
