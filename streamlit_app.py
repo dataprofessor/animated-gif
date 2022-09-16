@@ -4,10 +4,10 @@ from moviepy.editor import VideoFileClip
 
 st.title('🎈 Animated GIF Maker')
 
-with st.sidebar.form('my_form'):
-  st.sidebar.header('Upload file')
-  uploaded_file = st.sidebar.file_uploader("Choose a file", type=['mov', 'mp4'])
-  submitted = st.sidebar.form_submit_button('Submit')
+form = st.form('my_form'):
+  form.sidebar.header('Upload file')
+  uploaded_file = form.sidebar.file_uploader("Choose a file", type=['mov', 'mp4'])
+  submitted = form.sidebar.form_submit_button('Submit')
 
 if submitted:
   # Save to temp file
