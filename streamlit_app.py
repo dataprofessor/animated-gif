@@ -9,7 +9,7 @@ uploaded_file = st.file_uploader("Choose a file", type=['mov', 'mp4'])
 if uploaded_file is not None:
   # Save to temp file
   tfile = tempfile.NamedTemporaryFile(delete=False) 
-  tfile.write(f.read())
+  tfile.write(uploaded_file.read())
   # Open file
   clip = VideoFileClip(uploaded_file)
   # Display width of video
