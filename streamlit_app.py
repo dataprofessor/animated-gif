@@ -24,7 +24,7 @@ if uploaded_file is not None:
   col3.metric('Duration', clip.duration, 'seconds')
   
   clip.save_frame('frame.jpg', t=10)
-  frame_image = Image.open("hopper.jpg")
+  frame_image = Image.open("frame.jpg")
   st.write(frame_image)
 else:
   st.warning('👈 Upload a video file')
