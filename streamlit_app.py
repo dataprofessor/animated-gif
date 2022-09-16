@@ -36,6 +36,7 @@ if uploaded_file is not None:
   clip.save_frame('frame.jpg', t=selected_frame)
   frame_image = Image.open("frame.jpg")
   st.image(frame_image)
+  st.write(frame_image.size)
   
 else:
   st.warning('👈 Upload a video file')
