@@ -22,7 +22,6 @@ if uploaded_file is not None:
   col2.metric('Height', clip.h, 'pixels')
   col3.metric('Duration', clip.duration, 'seconds')
   
-  frame = clip.get_frame(10)
-  st.write(frame)
+  clip.save_frame('frame.jpg', t=10)
 else:
   st.warning('👈 Upload a video file')
