@@ -69,7 +69,8 @@ if uploaded_file is not None:
   clip = clip.subclip(0, 3)
   
   clip.write_gif('export.gif')
-    
+  
+  st.subheader('Download')
   with open('export.gif', 'rb') as file:
     btn = st.download_button(
             label='Download image',
