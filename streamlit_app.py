@@ -28,7 +28,7 @@ if uploaded_file is not None:
   col4.metric('FPS', clip.fps, '')
   col5.metric('Frames', frames_count, 'frames')
   
-  selected_frame = st.sidebar.slider('Select a frame', np.median(frames_count), frames_count, 10)
+  selected_frame = st.sidebar.slider('Select a frame', 1, frames_count, int(np.median(frames_count)) )
   
   clip.save_frame('frame.jpg', t=selected_frame)
   frame_image = Image.open("frame.jpg")
