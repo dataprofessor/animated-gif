@@ -25,9 +25,11 @@ if uploaded_file is not None:
   col4.metric('FPS', clip.fps, '')
   col5.metric('Frames', clip.duration * clip.fps, 'frames')
   
+  st.slider('Select a frame', 1, clip.duration * clip.fps, 10)
   
   clip.save_frame('frame.jpg', t=10)
   frame_image = Image.open("frame.jpg")
   st.image(frame_image)
+  
 else:
   st.warning('👈 Upload a video file')
