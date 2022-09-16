@@ -31,7 +31,7 @@ if uploaded_file is not None:
     
   st.session_state.clip_duration = clip.duration
     
-  selected_frame = st.sidebar.slider('Select a time frame (s)', 0, int(st.session_state.clip_duration), int(np.median(st.session_state.clip_duration)) )
+  selected_frame = st.sidebar.slider('View a time frame (s)', 0, int(st.session_state.clip_duration), int(np.median(st.session_state.clip_duration)) )
   selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
   
   # Resizing of video
