@@ -11,7 +11,7 @@ if uploaded_file is not None:
   tfile = tempfile.NamedTemporaryFile(delete=False) 
   tfile.write(uploaded_file.read())
   # Open file
-  clip = VideoFileClip(uploaded_file)
+  clip = VideoFileClip(tfile.name)
   # Display width of video
   st.write(clip.w)
 else:
