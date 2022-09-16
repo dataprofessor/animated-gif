@@ -72,7 +72,7 @@ if uploaded_file is not None:
   
   st.subheader('Download')
   
-  @st.experimental_memo
+  @st.cache
   with open('export.gif', 'rb') as file:
     btn = st.download_button(
             label='Download image',
