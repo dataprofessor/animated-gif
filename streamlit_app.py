@@ -16,7 +16,11 @@ if uploaded_file is not None:
   tfile.write(uploaded_file.read())
   
   # Open file
-  clip = VideoFileClip(tfile.name)
+  clip_raw = VideoFileClip(tfile.name)
+  
+  # Resizing of video
+  clip = clip_raw.resize(selected_resolution_scaling)
+  
   
   # Display output
   col1, col2, col3, col4, col5 = st.columns(5)
@@ -29,11 +33,8 @@ if uploaded_file is not None:
   selected_frame = st.sidebar.slider('Select a time frame (s)', 0, int(clip.duration), int(np.median(clip.duration)) )
   selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
   
-  # Resizing of video
-  clip2 = clip.resize(selected_resolution_scaling)
-  
   # Extract video frame as a display image
-  clip2.save_frame('frame.jpg', t=selected_frame)
+  clip.save_frame('frame.jpg', t=selected_frame)
   frame_image = Image.open("frame.jpg")
   st.image(frame_image)
   st.write(frame_image.size)
