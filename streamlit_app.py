@@ -30,10 +30,10 @@ if uploaded_file is not None:
   selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
   
   # Resizing of video
-  clip.resize(selected_resolution_scaling)
+  clip2 = clip.resize(selected_resolution_scaling)
   
   # Extract video frame as a display image
-  clip.save_frame('frame.jpg', t=selected_frame)
+  clip2.save_frame('frame.jpg', t=selected_frame)
   frame_image = Image.open("frame.jpg")
   st.image(frame_image)
   st.write(frame_image.size)
