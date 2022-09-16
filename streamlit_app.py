@@ -18,10 +18,6 @@ if uploaded_file is not None:
   # Open file
   clip_raw = VideoFileClip(tfile.name)
   
-  # Resizing of video
-  clip = clip_raw.resize(selected_resolution_scaling)
-  
-  
   # Display output
   col1, col2, col3, col4, col5 = st.columns(5)
   col1.metric('Width', clip.w, 'pixels')
@@ -32,6 +28,9 @@ if uploaded_file is not None:
   
   selected_frame = st.sidebar.slider('Select a time frame (s)', 0, int(clip.duration), int(np.median(clip.duration)) )
   selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
+  
+  # Resizing of video
+  clip = clip.resize(selected_resolution_scaling)
   
   # Extract video frame as a display image
   clip.save_frame('frame.jpg', t=selected_frame)
