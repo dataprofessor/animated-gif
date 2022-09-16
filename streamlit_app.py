@@ -16,9 +16,9 @@ if uploaded_file is not None:
   
   # Display output
   col1, col2, col3 = st.columns(3)
-  col1.metric('Width', clip.w, '')
-  col2.metric('Height', clip.h, '')
-  col3.metric('Duration', clip.duration, '')
+  col1.metric('Width', clip.w, 'pixels')
+  col2.metric('Height', clip.h, 'pixels')
+  col3.metric('Duration', clip.duration, 'seconds')
   
 else:
   st.warning('☝️ Upload a video file')
