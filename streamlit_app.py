@@ -1,4 +1,5 @@
 import streamlit as st
+import tempfile
 from moviepy.editor import VideoFileClip
 
 st.title('🎈 Animated GIF Maker')
