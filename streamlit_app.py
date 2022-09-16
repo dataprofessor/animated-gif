@@ -58,6 +58,5 @@ if uploaded_file is not None:
   st.image(frame_image)
   st.write(frame_image.size)
  
-
 else:
   st.warning('👈 Upload a video file')
