@@ -79,8 +79,8 @@ if uploaded_file is not None:
             file_name='export.gif',
             mime='image/gif'
           )
-  if btn:
-    st.session_state.btn = True
+    if btn:
+        st.session_state.btn = True
     
   if 'btn' in st.session_state:
     st.balloon()
