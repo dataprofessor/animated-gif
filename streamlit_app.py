@@ -7,7 +7,6 @@ st.title('🎈 Animated GIF Maker')
 with st.form('my_form'):
   st.sidebar.header('Upload file')
   uploaded_file = st.sidebar.file_uploader("Choose a file", type=['mov', 'mp4'])
-  
   submitted = st.sidebar.form_submit_button('Submit')
 
   if submitted:
