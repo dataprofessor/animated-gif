@@ -36,13 +36,7 @@ if uploaded_file is not None:
   
   # Resizing of video
   clip = clip.resize(selected_resolution_scaling)
-  
-  # Extract video frame as a display image
-  clip.save_frame('frame.jpg', t=selected_frame)
-  frame_image = Image.open("frame.jpg")
-  st.image(frame_image)
-  st.write(frame_image.size)
-    
+     
   st.session_state.clip_width = clip.w
   st.session_state.clip_height = clip.h
   st.session_state.clip_duration = clip.duration
@@ -56,6 +50,13 @@ if uploaded_file is not None:
   col3.metric('Duration', st.session_state.clip_duration, 'seconds')
   col4.metric('FPS', st.session_state.clip_fps, '')
   col5.metric('Total Frames', st.session_state.clip_total_frames, 'frames')
+
+  # Extract video frame as a display image
+  clip.save_frame('frame.jpg', t=selected_frame)
+  frame_image = Image.open("frame.jpg")
+  st.image(frame_image)
+  st.write(frame_image.size)
+ 
 
 else:
   st.warning('👈 Upload a video file')
