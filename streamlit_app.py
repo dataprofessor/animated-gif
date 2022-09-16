@@ -18,10 +18,11 @@ if uploaded_file is not None:
   clip = VideoFileClip(tfile.name)
   
   # Display output
-  col1, col2, col3 = st.columns(3)
+  col1, col2, col3, col4 = st.columns(4)
   col1.metric('Width', clip.w, 'pixels')
   col2.metric('Height', clip.h, 'pixels')
   col3.metric('Duration', clip.duration, 'seconds')
+  col4.metric('FPS', clip.fps, '')
   
   
   clip.save_frame('frame.jpg', t=10)
