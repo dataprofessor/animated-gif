@@ -8,3 +8,5 @@ uploaded_file = st.file_uploader("Choose a file", type=['mov', 'mp4'])
 if uploaded_file is not None:
   clip = VideoFileClip(uploaded_file)
   st.write(clip.w)
+else:
+  st.warning('☝️ Upload a video file')
