@@ -68,8 +68,7 @@ if uploaded_file is not None:
   # Export as animated GIF
   clip = clip.subclip(0, 3)
   
-  with st.spinner('Wait for it ...'):
-    clip.write_gif('export.gif')
+  clip.write_gif('export.gif')
     
   with open('export.gif', 'rb') as file:
     btn = st.download_button(
