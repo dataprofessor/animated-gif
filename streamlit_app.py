@@ -23,4 +23,4 @@ if uploaded_file is not None:
   col3.metric('Duration', clip.duration, 'seconds')
   
 else:
-  st.warning('☝️ Upload a video file')
+  st.warning('👈 Upload a video file')
