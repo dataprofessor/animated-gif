@@ -77,7 +77,11 @@ if uploaded_file is not None:
     clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx)
 
     clip.write_gif('export.gif', fps=25)
-  
+    
+    video_file = open('export.gif', 'rb')
+    video_bytes = video_file.read()
+    st.video(video_bytes)
+    
     st.subheader('Download')
   
     with open('export.gif', 'rb') as file:
