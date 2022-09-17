@@ -65,6 +65,7 @@ if uploaded_file is not None:
   with st.expander('Show image parameters'):
     st.write(f'File name: `{uploaded_file.name}`')
     st.write('Image size:', frame_image.size)
+    st.write('Speed playback:', selected_speedx)
     st.write('Export duration:', selected_export_range)
     
   # Export as animated GIF
