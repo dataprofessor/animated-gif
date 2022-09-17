@@ -69,7 +69,7 @@ if uploaded_file is not None:
   # Export as animated GIF
   generate_gif = st.button('Generate animated GIF')
   
-  if generate_gjf:
+  if generate_gif:
     clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx)
 
     clip.write_gif('export.gif')
