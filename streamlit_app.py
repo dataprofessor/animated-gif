@@ -43,7 +43,7 @@ if uploaded_file is not None:
   st.session_state.clip_height = clip.h
   st.session_state.clip_duration = clip.duration
   st.session_state.clip_total_frames = clip.duration * clip.fps
-  st.session_state.clip_fps = st.sidebar.slider('FPS', 10, 60, clip.fps)
+  st.session_state.clip_fps = st.sidebar.slider('FPS', 10, 60, int(clip.fps))
     
   # Display output
   st.subheader('Metrics')
@@ -79,7 +79,6 @@ if uploaded_file is not None:
     clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx)
 
     clip.write_gif('export.gif', fps=selected_fps)
-    
     
     st.subheader('Download')
   
