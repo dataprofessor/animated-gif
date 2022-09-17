@@ -63,12 +63,13 @@ if uploaded_file is not None:
   # Print image parameters
   st.subheader('Image parameters')
   with st.expander('Show image parameters'):
+    st.write('File name:' clip.name)
     st.write('Image size:', frame_image.size)
     st.write('Export duration:', selected_export_range)
     
   # Export as animated GIF
-  st.subheader('Output')
-  generate_gif = st.button('Generate animated GIF')
+  st.subheader('Generate GIF')
+  generate_gif = st.button('Generate Animated GIF')
   
   if generate_gif:
     clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx)
