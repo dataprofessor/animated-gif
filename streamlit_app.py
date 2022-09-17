@@ -67,9 +67,9 @@ if uploaded_file is not None:
     st.write('Export duration:', selected_export_range)
     
   # Export as animated GIF
-  clip = clip.subclip(int(st.session_state.clip_duration[0]), 
-                      int(st.session_state.clip_duration[1]) ).speedx(selected_speedx)
-  
+  clip = clip.subclip(0,3).speedx(selected_speedx)
+  st.write(st.session_state.clip_duration)
+
   clip.write_gif('export.gif')
   
   st.subheader('Download')
