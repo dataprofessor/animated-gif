@@ -32,7 +32,7 @@ if uploaded_file is not None:
     
   selected_frame = st.sidebar.slider('Preview a time frame (s)', 0, int(st.session_state.clip_duration), int(np.median(st.session_state.clip_duration)) )
   selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
-  selected_speedx = st.sidebar.slider('Speed up', 0.1, 3.0, 1.0)
+  selected_speedx = st.sidebar.slider('Speed playback', 0.1, 3.0, 1.0)
   selected_export_range = st.sidebar.slider('Select duration range to export', 0, int(st.session_state.clip_duration), (0, 2))
 
   # Resizing of video
@@ -65,6 +65,7 @@ if uploaded_file is not None:
   with st.expander('Show image parameters'):
     st.write(f'File name: `{uploaded_file.name}`')
     st.write('Image size:', frame_image.size)
+    st.write('Video resolution scaling', selected_resolution_scaling)
     st.write('Speed playback:', selected_speedx)
     st.write('Export duration:', selected_export_range)
     
