@@ -68,7 +68,7 @@ if uploaded_file is not None:
     
   # Export as animated GIF
   clip = clip.subclip(0,3).speedx(selected_speedx)
-  st.write(st.session_state.clip_duration)
+  st.write(selected_export_range)
 
   clip.write_gif('export.gif')
   
