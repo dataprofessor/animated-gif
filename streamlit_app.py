@@ -70,6 +70,7 @@ if uploaded_file is not None:
     st.write('Speed playback:', selected_speedx)
     st.write('Export duration:', selected_export_range)
     st.write('FPS:', st.session_state.clip_fps)
+    st.write(uploaded_file.name.split('.')[0])
     
   # Export as animated GIF
   st.subheader('Generate GIF')
