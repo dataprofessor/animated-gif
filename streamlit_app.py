@@ -70,7 +70,6 @@ if uploaded_file is not None:
     st.write('Speed playback:', selected_speedx)
     st.write('Export duration:', selected_export_range)
     st.write('FPS:', st.session_state.clip_fps)
-    st.write(uploaded_file.name.split('.')[0])
     
   # Export as animated GIF
   st.subheader('Generate GIF')
@@ -82,12 +81,13 @@ if uploaded_file is not None:
     clip.write_gif('export.gif', fps=st.session_state.clip_fps)
     
     st.subheader('Download')
-  
+    
+    fname = uploaded_file.name.split('.')[0]
     with open('export.gif', 'rb') as file:
       btn = st.download_button(
             label='Download image',
             data=file,
-            file_name='export.gif',
+            file_name=f'{fname}_scaling-{selected_resolution_scaling}_fps-{st.session_state.clip_fps}_speed-{selected_speedx}_duration-{selected_export_range[0]-selected_export_range[1]}.gif',
             mime='image/gif'
           )
 
