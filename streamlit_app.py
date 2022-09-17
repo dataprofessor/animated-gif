@@ -33,8 +33,8 @@ if uploaded_file is not None:
   # Input widgets
   selected_frame = st.sidebar.slider('Preview a time frame (s)', 0, int(st.session_state.clip_duration), int(np.median(st.session_state.clip_duration)) )
   selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
-  selected_speedx = st.sidebar.slider('Speed playback', 0.1, 6.0, 1.0)
-  selected_export_range = st.sidebar.slider('Duration range to export', 0, int(st.session_state.clip_duration), (0, 2))
+  selected_speedx = st.sidebar.slider('Speed playback', 0.1, 6.0, 4.0)
+  selected_export_range = st.sidebar.slider('Duration range to export', 0, int(st.session_state.clip_duration), (0, int(st.session_state.clip_duration) ))
     
   # Resizing of video
   clip = clip.resize(selected_resolution_scaling)
@@ -43,7 +43,7 @@ if uploaded_file is not None:
   st.session_state.clip_height = clip.h
   st.session_state.clip_duration = clip.duration
   st.session_state.clip_total_frames = clip.duration * clip.fps
-  st.session_state.clip_fps = st.sidebar.slider('FPS', 10, 60, int(clip.fps))
+  st.session_state.clip_fps = st.sidebar.slider('FPS', 10, 60, 20)
     
   # Display output
   st.subheader('Metrics')
