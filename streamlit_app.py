@@ -87,7 +87,7 @@ if uploaded_file is not None:
       btn = st.download_button(
             label='Download image',
             data=file,
-            file_name=f'{fname}_scaling-{selected_resolution_scaling}_fps-{st.session_state.clip_fps}_speed-{selected_speedx}_duration-{selected_export_range[0]-selected_export_range[1]}.gif',
+            file_name=f'{fname}_scaling-{selected_resolution_scaling}_fps-{st.session_state.clip_fps}_speed-{selected_speedx}_duration-{selected_export_range[0]}-{selected_export_range[1]}.gif',
             mime='image/gif'
           )
 
