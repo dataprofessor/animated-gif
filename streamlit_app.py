@@ -67,6 +67,7 @@ if uploaded_file is not None:
     st.write('Export duration:', selected_export_range)
     
   # Export as animated GIF
+  st.subheader('Output')
   generate_gif = st.button('Generate animated GIF')
   
   if generate_gif:
