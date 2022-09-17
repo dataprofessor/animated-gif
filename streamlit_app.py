@@ -78,7 +78,7 @@ if uploaded_file is not None:
   if generate_gif:
     clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx)
 
-    clip.write_gif('export.gif', fps=selected_fps)
+    clip.write_gif('export.gif', fps=st.session_state.clip_fps)
     
     st.subheader('Download')
   
