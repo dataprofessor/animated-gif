@@ -67,14 +67,17 @@ if uploaded_file is not None:
     st.write('Export duration:', selected_export_range)
     
   # Export as animated GIF
-  clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx)
+  generate_gif = st.button('Generate animated GIF')
+  
+  if generate_gjf:
+    clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx)
 
-  clip.write_gif('export.gif')
+    clip.write_gif('export.gif')
   
-  st.subheader('Download')
+    st.subheader('Download')
   
-  with open('export.gif', 'rb') as file:
-    btn = st.download_button(
+    with open('export.gif', 'rb') as file:
+      btn = st.download_button(
             label='Download image',
             data=file,
             file_name='export.gif',
