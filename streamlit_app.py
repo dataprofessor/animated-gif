@@ -29,12 +29,14 @@ if uploaded_file is not None:
   clip = VideoFileClip(tfile.name)
     
   st.session_state.clip_duration = clip.duration
-    
+  
+  # Input widgets
   selected_frame = st.sidebar.slider('Preview a time frame (s)', 0, int(st.session_state.clip_duration), int(np.median(st.session_state.clip_duration)) )
   selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
   selected_speedx = st.sidebar.slider('Speed playback', 0.1, 6.0, 1.0)
-  selected_export_range = st.sidebar.slider('Select duration range to export', 0, int(st.session_state.clip_duration), (0, 2))
-
+  selected_export_range = st.sidebar.slider('Duration range to export', 0, int(st.session_state.clip_duration), (0, 2))
+  selected_fps = st.sidebar.slider('FPS', 10, 60, 1)
+    
   # Resizing of video
   clip = clip.resize(selected_resolution_scaling)
      
@@ -68,6 +70,7 @@ if uploaded_file is not None:
     st.write('Video resolution scaling', selected_resolution_scaling)
     st.write('Speed playback:', selected_speedx)
     st.write('Export duration:', selected_export_range)
+    st.write('FPS:', selected_fps)
     
   # Export as animated GIF
   st.subheader('Generate GIF')
@@ -76,7 +79,7 @@ if uploaded_file is not None:
   if generate_gif:
     clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx)
 
-    clip.write_gif('export.gif', fps=15)
+    clip.write_gif('export.gif', fps=selected_fps)
     
     
     st.subheader('Download')
