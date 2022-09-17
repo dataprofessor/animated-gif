@@ -35,7 +35,6 @@ if uploaded_file is not None:
   selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
   selected_speedx = st.sidebar.slider('Speed playback', 0.1, 6.0, 1.0)
   selected_export_range = st.sidebar.slider('Duration range to export', 0, int(st.session_state.clip_duration), (0, 2))
-  selected_fps = st.sidebar.slider('FPS', 10, 60, 1)
     
   # Resizing of video
   clip = clip.resize(selected_resolution_scaling)
@@ -43,9 +42,9 @@ if uploaded_file is not None:
   st.session_state.clip_width = clip.w
   st.session_state.clip_height = clip.h
   st.session_state.clip_duration = clip.duration
-  st.session_state.clip_fps = clip.fps
   st.session_state.clip_total_frames = clip.duration * clip.fps
-  
+  st.session_state.clip_fps = st.sidebar.slider('FPS', 10, 60, clip.fps)
+    
   # Display output
   st.subheader('Metrics')
   col1, col2, col3, col4, col5 = st.columns(5)
@@ -70,7 +69,7 @@ if uploaded_file is not None:
     st.write('Video resolution scaling', selected_resolution_scaling)
     st.write('Speed playback:', selected_speedx)
     st.write('Export duration:', selected_export_range)
-    st.write('FPS:', selected_fps)
+    st.write('FPS:', st.session_state.clip_fps)
     
   # Export as animated GIF
   st.subheader('Generate GIF')
