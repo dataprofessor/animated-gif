@@ -71,7 +71,7 @@ if uploaded_file is not None:
     st.write('Video resolution scaling', selected_resolution_scaling)
     st.write('Speed playback:', selected_speedx)
     st.write('Export duration:', selected_export_range)
-    st.write('FPS:', st.session_state.clip_fps)
+    st.write('Frames per second (FPS):', st.session_state.clip_fps)
     
   # Export as animated GIF
   st.subheader('Generate GIF')
