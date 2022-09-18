@@ -56,9 +56,10 @@ if uploaded_file is not None:
 
   # Extract video frame as a display image
   st.subheader('Preview')
-  clip.save_frame('frame.gif', t=selected_frame)
-  frame_image = Image.open('frame.gif')
+
   with st.expander('Show image'):
+    clip.save_frame('frame.gif', t=selected_frame)
+    frame_image = Image.open('frame.gif')
     selected_frame = st.sidebar.slider('Preview a time frame (s)', 0, int(st.session_state.clip_duration), int(np.median(st.session_state.clip_duration)) )
     st.image(frame_image)
 
