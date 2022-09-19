@@ -86,7 +86,6 @@ if uploaded_file is not None:
     frames = []
     for frame in clip.iter_frames():
         frames.append(np.array(frame))
-        return frames
     
     image_list = []
 
