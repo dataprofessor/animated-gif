@@ -91,7 +91,7 @@ if uploaded_file is not None:
 
     for frame in frames:
         im = Image.fromarray(frame)
-        images.append(im)
+        image_list.append(im)
 
     image_list[0].save(
         "export.gif",
