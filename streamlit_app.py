@@ -3,6 +3,7 @@ import tempfile
 from PIL import Image
 import numpy as np
 from moviepy.editor import VideoFileClip
+import moviepy.video.fx.all as vfx
 
 if 'clip_width' not in st.session_state:
     st.session_state.clip_width = 0
@@ -80,8 +81,9 @@ if uploaded_file is not None:
   
   if generate_gif:
     clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx)
+    clip2 = clip.fx(vfx.loop)
 
-    clip.write_gif('export.gif', fps=st.session_state.clip_fps)
+    clip2.write_gif('export.gif', fps=st.session_state.clip_fps)
     
     st.subheader('Download')
     
