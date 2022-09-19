@@ -81,9 +81,31 @@ if uploaded_file is not None:
   
   if generate_gif:
     clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx)
-    clip2 = clip.fx(vfx.make_loopable, cross=st.session_state.clip_duration)
+    
+    
+    frames = []
+    for frame in clip.iter_frames():
+        frames.append(np.array(frame))
+        return frames
+    
+    image_list = []
 
-    clip2.write_gif('export.gif', fps=st.session_state.clip_fps)
+    for frame in frames:
+        im = Image.fromarray(frame)
+        images.append(im)
+
+    image_list[0].save(
+        "export.gif",
+        format = "GIF",
+        save_all = True,
+        loop = 0,
+        append_images = image_list,
+        duration = 40,
+        disposal = 3
+    )
+    
+
+    #clip.write_gif('export.gif', fps=st.session_state.clip_fps)
     
     st.subheader('Download')
     
