@@ -79,7 +79,7 @@ if uploaded_file is not None:
   generate_gif = st.button('Generate Animated GIF')
   
   if generate_gif:
-    clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx)
+    clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx).filter(lambda x: x.time_span > 3).best()
 
     clip.write_gif('export.gif', fps=st.session_state.clip_fps)
     
