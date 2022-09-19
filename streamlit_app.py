@@ -81,7 +81,7 @@ if uploaded_file is not None:
   
   if generate_gif:
     clip = clip.subclip(selected_export_range[0], selected_export_range[1]).speedx(selected_speedx)
-    clip2 = clip.fx(vfx.make_loopable, cross=2)
+    clip2 = clip.fx(vfx.make_loopable, cross=st.session_state.clip_duration)
 
     clip2.write_gif('export.gif', fps=st.session_state.clip_fps)
     
