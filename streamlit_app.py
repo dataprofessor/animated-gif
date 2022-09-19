@@ -99,7 +99,7 @@ if uploaded_file is not None:
         save_all = True,
         loop = 0,
         append_images = image_list,
-        duration = 40,
+        duration = st.session_state.clip_duration,
         disposal = 3
     )
     
