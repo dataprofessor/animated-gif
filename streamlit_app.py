@@ -98,9 +98,7 @@ if uploaded_file is not None:
         format = "GIF",
         save_all = True,
         loop = 0,
-        append_images = image_list,
-        duration = 40,
-        disposal = 3
+        append_images = image_list
     )
     
 
