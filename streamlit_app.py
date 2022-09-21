@@ -36,7 +36,7 @@ if uploaded_file is not None:
   # Input widgets
   st.sidebar.header('Input parameters')
   selected_resolution_scaling = st.sidebar.slider('Scaling of video resolution', 0.0, 1.0, 0.5 )
-  selected_speedx = st.sidebar.slider('Speed playback', 0.1, 6.0, 4.0)
+  selected_speedx = st.sidebar.slider('Playback speed', 0.1, 10.0, 5.0)
   selected_export_range = st.sidebar.slider('Duration range to export', 0, int(st.session_state.clip_duration), (0, int(st.session_state.clip_duration) ))
     
   # Resizing of video
