@@ -1,4 +1,4 @@
-# Animated GIF Maker
+# 🖼️ Animated GIF Maker
 
 The `Animated GIF Maker` app allow users to upload a video file and the app will convert it to an animated GIF. 
 
