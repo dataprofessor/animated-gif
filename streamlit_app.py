@@ -108,7 +108,7 @@ if uploaded_file is not None:
     st.subheader('Download')
     
     fsize = os.path.getsize('export.gif')/(1024*1024)
-    st.info(f'File size of generated GIF: {fsize}', icon='💾')
+    st.info(f'File size of generated GIF: {fsize} MB', icon='💾')
     
     fname = uploaded_file.name.split('.')[0]
     with open('export.gif', 'rb') as file:
