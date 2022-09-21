@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 import tempfile
 from PIL import Image
 import numpy as np
@@ -105,6 +106,9 @@ if uploaded_file is not None:
     #clip.write_gif('export.gif', fps=st.session_state.clip_fps)
     
     st.subheader('Download')
+    
+    fsize = os.path.getsize('export.gif')
+    st.info(f'File size of generated GIF: {fsize}', icon='💾')
     
     fname = uploaded_file.name.split('.')[0]
     with open('export.gif', 'rb') as file:
