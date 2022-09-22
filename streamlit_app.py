@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import base64
 import tempfile
 from PIL import Image
 import numpy as np
