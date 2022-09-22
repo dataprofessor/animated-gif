@@ -96,18 +96,19 @@ if uploaded_file is not None:
         im = Image.fromarray(frame)
         image_list.append(im)
 
-    image_list[0].save(
-        "export.gif",
-        format = "GIF",
-        save_all = True,
-        loop = 0,
-        append_images = image_list
-    )
+    image_list[0].save('export.gif', format = 'GIF', save_all = True, loop = 0, append_images = image_list)
     
     #clip.write_gif('export.gif', fps=st.session_state.clip_fps)
     
     ## Download ##
     st.subheader('Download')
+    
+    file = open(r'export.gif', 'rb')
+    contents = file.read()
+    data_url = base64.b64encode(contents).decode('utf-8-sig')
+    file.close()
+    st.markdown(f'<img src="data:image/gif;base64,{data_url}>',unsafe_allow_html = True)
+    
     
     fsize = round(os.path.getsize('export.gif')/(1024*1024), 1)
     st.info(f'File size of generated GIF: {fsize} MB', icon='💾')
