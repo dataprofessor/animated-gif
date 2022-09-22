@@ -104,9 +104,18 @@ if uploaded_file is not None:
     ## Download ##
     st.subheader('Download')
     
-    video_file = open('export.gif', 'rb')
-    video_bytes = video_file.read()
-    st.video(video_bytes)
+    #video_file = open('export.gif', 'rb')
+    #video_bytes = video_file.read()
+    #st.video(video_bytes)
+    
+    file_ = open('export.gif, 'rb')
+    contents = file_.read()
+    data_url = base64.b64encode(contents).decode("utf-8")
+    file_.close()
+    st.markdown(
+        f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
+        unsafe_allow_html=True,
+    )
     
     fsize = round(os.path.getsize('export.gif')/(1024*1024), 1)
     st.info(f'File size of generated GIF: {fsize} MB', icon='💾')
