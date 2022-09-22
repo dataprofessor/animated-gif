@@ -108,7 +108,7 @@ if uploaded_file is not None:
     #video_bytes = video_file.read()
     #st.video(video_bytes)
     
-    file_ = open('export.gif, 'rb')
+    file_ = open('export.gif', 'rb')
     contents = file_.read()
     data_url = base64.b64encode(contents).decode("utf-8")
     file_.close()
