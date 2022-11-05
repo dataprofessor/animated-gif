@@ -27,7 +27,7 @@ uploaded_file = st.sidebar.file_uploader("Choose a file", type=['mov', 'mp4'])
 st.sidebar.markdown('''
 [Download example file](https://github.com/dataprofessor/animated-gif/raw/master/example/streamlit-app-starter-kit-screencast.mov)
 
-Made with ❤️ by [Data Professor](https://youtube.com/dataprofessor)
+Made with ❤️ by Chanin ([Data Professor](https://youtube.com/dataprofessor))
 ''')
 
 ## Display gif generation parameters once file has been uploaded ##
